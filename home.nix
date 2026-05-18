@@ -5,6 +5,15 @@
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
+  
+
+  home.pointerCursor = {
+    name = "Adwaita";
+    package = "adwaita-icon-theme";
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
 
   programs.git = {
     enable = true;
