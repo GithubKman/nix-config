@@ -17,6 +17,7 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -24,6 +25,10 @@
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia"];
+  hardware.nvidia.open = true;
 
   networking.hostName = "nixos"; # Define your hostname.
 
