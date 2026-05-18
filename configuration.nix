@@ -74,7 +74,7 @@
   users.users.kman = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.fish
+    shell = pkgs.fish;
     packages = with pkgs; [
       tree
       git
