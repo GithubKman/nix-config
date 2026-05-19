@@ -8,13 +8,17 @@
     _1password-gui
     _1password-cli
     vesktop
-    steam
     feh
     btop
-    starship
   ];
   
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      fish_vi_key_bindings
+    '';
+  };
+  programs.starship.enable = true;
 
 
   home.pointerCursor = {
@@ -43,6 +47,8 @@
       };
     };
   };
+ 
+  programs.steam.enable = true;
 
   programs.firefox = {
     enable = true;

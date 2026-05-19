@@ -79,7 +79,7 @@
   users.users.kman = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.dash;
+    shell = pkgs.bash;
     packages = with pkgs; [
       tree
       foot
@@ -97,6 +97,7 @@
         shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
         exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
       fi
+      echo "ran shellInit"
     '';
   };
 
