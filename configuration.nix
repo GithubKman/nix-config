@@ -79,7 +79,7 @@
   users.users.kman = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.fish;
+    shell = pkgs.dash;
     packages = with pkgs; [
       tree
       foot
@@ -90,7 +90,6 @@
     ];
   };
 
-  programs.fish.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
