@@ -82,7 +82,6 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       tree
-      git
       foot
       neovim
       fuzzel
@@ -91,7 +90,6 @@
     ];
   };
 
-  programs.firefox.enable = true;
   programs.fish.enable = true;
   programs.hyprland = {
     enable = true;
@@ -102,9 +100,26 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    git
     wget
     curl
   ];
+  
+
+  environment.sessionVariables = {
+    "GTK_THEME" = "Adwaita:dark";
+  };
+#  xdg.portal = {
+#    enable = true;
+#    config = {
+#      common = {
+#        # Forces the system-wide color scheme preference to dark
+#        "org.freedesktop.impl.portal.Settings" = {
+#          "color-scheme" = 1; # 1 = Prefer Dark, 2 = Prefer Light
+#        };
+#      };
+#    };
+#  };
 
 
   stylix.enable = true;
@@ -124,6 +139,7 @@
 
 
   stylix.targets.gtk.enable = true;
+  
 
 
   # Some programs need SUID wrappers, can be configured further or are
