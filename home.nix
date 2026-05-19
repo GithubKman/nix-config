@@ -7,6 +7,9 @@
     prismlauncher
     _1password-gui
     _1password-cli
+    vesktop
+    steam
+    feh
   ];
   
 
