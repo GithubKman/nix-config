@@ -108,7 +108,22 @@
 
 
   stylix.enable = true;
-  stylix.base24Scheme = "base24-tokyo-night-dark";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+
+  stylix.fonts = {
+    sizes = {
+      terminal = 12;
+      desktop = 10;
+    };
+    monospace = {
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "JetBrainsMono Nerd Font";
+    };
+  };
+  
+
+
+  stylix.targets.gtk.enable = true;
 
 
   # Some programs need SUID wrappers, can be configured further or are
