@@ -80,16 +80,9 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.bash;
-    packages = with pkgs; [
-      tree
-      foot
-      neovim
-      fuzzel
-      thunar
-      swaybg
-    ];
   };
 
+  programs.fish.enable = true;
   programs.bash = {
     interactiveShellInit = ''
       if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
@@ -101,6 +94,7 @@
     '';
   };
 
+  programs.steam.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -111,6 +105,7 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    parted
     wget
     curl
   ];
@@ -134,6 +129,7 @@
 
   stylix = {
     enable = true;
+    autoEnable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
   };

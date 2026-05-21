@@ -9,16 +9,32 @@
     _1password-cli
     vesktop
     feh
-    btop
+    xeyes
+    tree
+    foot
+    neovim
+    thunar
+    swaybg
   ];
   
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       fish_vi_key_bindings
+      abbr -a nvim vim
     '';
   };
   programs.starship.enable = true;
+
+  services.dunst.enable = true;
+  programs.fuzzel.enable = true;
+  programs.btop = {
+    enable = true;
+    settings = {
+      update_ms = 500;
+    };
+  };
+  
 
 
   home.pointerCursor = {
@@ -48,8 +64,6 @@
     };
   };
  
-  programs.steam.enable = true;
-
   programs.firefox = {
     enable = true;
     profiles = {
@@ -84,6 +98,7 @@
   };
   stylix.targets.firefox.profileNames = [ "default" ];
   stylix.targets.firefox.colorTheme.enable = true;
+  stylix.targets.fuzzel.enable = true;
   
 
   gtk = {
