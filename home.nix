@@ -22,6 +22,7 @@
     interactiveShellInit = ''
       fish_vi_key_bindings
       abbr -a nvim vim
+      abbr -a gac "git add . && git commit -m"
     '';
   };
   programs.starship.enable = true;
