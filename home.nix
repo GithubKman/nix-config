@@ -17,6 +17,16 @@
     swaybg
   ];
   
+
+  systemd.user.services.footserver = {
+    enable = true;
+    wantedBy = [ "default.target" ];
+    description = "Foot Client user service";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''foot --server'';
+    };
+  };
   programs.fastfetch.enable = true;
   programs.fish = {
     enable = true;
@@ -63,7 +73,10 @@
   };
   programs.foot = {
     enable = true;
-    server.enable = true;
+    server  = {
+      enable = true;
+      systemdTarget = footserver;
+    };
     settings = {
       mouse = {
         hide-when-typing = "yes";
