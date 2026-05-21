@@ -17,12 +17,14 @@
     swaybg
   ];
   
+  programs.fastfetch.enable = true;
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       fish_vi_key_bindings
       abbr -a nvim vim
       abbr -a gac "git add . && git commit -m"
+      fastfetch
     '';
   };
   programs.starship.enable = true;
