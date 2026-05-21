@@ -17,23 +17,6 @@
     swaybg
   ];
   
-  systemd.user.services.footserver = {
-    Unit = {
-      Description = "Foot terminal server";
-      Documentation = "man:foot(1)";
-    };
-  
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.foot}/bin/foot --server";
-      Restart = "on-failure";
-    };
-  
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-  };
-
   programs.fastfetch.enable = true;
   programs.fish = {
     enable = true;
@@ -87,6 +70,19 @@
       mouse = {
         hide-when-typing = "yes";
       };
+    };
+  };
+
+
+  systemd.user.services.foot-server = {
+    Unit = {
+      # Replace "hyprland-session.target" with "sway-session.target" if you use Sway
+      After = [ "graphical-session.target" "hyprland-session.target" ];
+      Requisite = [ "graphical-session.target" ];
+    };
+    Service = {
+      # This gives the compositor a couple seconds to breathe before foot starts
+      ExecStartPre = "${pkgs.coreutils}/bin/sleep 2"; 
     };
   };
  
