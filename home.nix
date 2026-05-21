@@ -24,8 +24,10 @@
       fish_vi_key_bindings
       abbr -a nvim vim
       abbr -a gac "git add . && git commit -m"
-      if test $(string split -f1 " " $(stty size)) -gt 26 && test $(string split -f2 " " $(stty size)) -gt 124
-        fastfetch
+      function fish_greeting
+        if test $(string split -f1 " " $(stty size)) -gt 26 && test $(string split -f2 " " $(stty size)) -gt 124
+          fastfetch
+        end
       end
     '';
   };
