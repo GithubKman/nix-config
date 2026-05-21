@@ -17,16 +17,23 @@
     swaybg
   ];
   
-
   systemd.user.services.footserver = {
-    enable = true;
-    wantedBy = [ "default.target" ];
-    description = "Foot Client user service";
-    serviceConfig = {
+    Unit = {
+      Description = "Foot terminal server";
+      Documentation = "man:foot(1)";
+    };
+  
+    Service = {
       Type = "simple";
-      ExecStart = ''foot --server'';
+      ExecStart = "${pkgs.foot}/bin/foot --server";
+      Restart = "on-failure";
+    };
+  
+    Install = {
+      WantedBy = [ "default.target" ];
     };
   };
+
   programs.fastfetch.enable = true;
   programs.fish = {
     enable = true;
@@ -75,7 +82,6 @@
     enable = true;
     server  = {
       enable = true;
-      systemdTarget = footserver;
     };
     settings = {
       mouse = {
