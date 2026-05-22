@@ -16,7 +16,7 @@
     thunar
     swaybg
     ripgrep
-    fd-find
+    fd
   ];
   
   programs.fastfetch.enable = true;
