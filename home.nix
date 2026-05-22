@@ -15,6 +15,8 @@
     neovim
     thunar
     swaybg
+    ripgrep
+    fd-find
   ];
   
   programs.fastfetch.enable = true;
@@ -22,7 +24,7 @@
     enable = true;
     interactiveShellInit = ''
       fish_vi_key_bindings
-      abbr -a nvim vim
+      abbr -a vim nvim
       abbr -a gac "git add . && git commit -m"
       function fish_greeting
         if test $(string split -f1 " " $(stty size)) -gt 26 && test $(string split -f2 " " $(stty size)) -gt 124
