@@ -24,13 +24,13 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [ {
-      device = "/swap/swapfile";
-      size = 32*1024;
-    } ];
+  fileSystems."/mnt/nvme990pro2tb" =
+    { device = "/dev/disk/by-uuid/d7532893-a283-4c3a-a95b-4a95fb734b9e";
+      fsType = "btrfs";
+    };
+
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
 }

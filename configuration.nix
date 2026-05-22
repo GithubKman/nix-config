@@ -40,6 +40,22 @@
   # Set your time zone.
   time.timeZone = "America/Denver";
 
+
+
+  systemd.user.services.xdg-desktop-portal-hyprland = {
+    unitConfig = {
+      Description = "Portal service (Hyprland implementation)";
+      # Force it to be bound to the graphical session
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    serviceConfig = {
+      # If it crashes or exits, do not automatically restart it if the session is gone
+      Restart = "on-failure";
+      RestartSec = "1s";
+    };
+  };
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";

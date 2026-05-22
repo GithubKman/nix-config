@@ -63,9 +63,9 @@
   };
   programs.foot = {
     enable = true;
-    server  = {
-      enable = true;
-    };
+    #server  = {
+    #  enable = true;
+    #};
     settings = {
       mouse = {
         hide-when-typing = "yes";
@@ -74,26 +74,26 @@
   };
 
 
-  systemd.user.services.foot-server = {
-    Unit = {
-      # Replace "hyprland-session.target" with "sway-session.target" if you use Sway
-      After = [ "graphical-session.target" "hyprland-session.target" ];
-      Requisite = [ "graphical-session.target" ];
-      ConditionEnvironment = "WAYLAND_DISPLAY";
-      Description = "Foot server service";
-      PartOf = "graphical-session.target";
-    };
-    Service = {
-      # This gives the compositor a couple seconds to breathe before foot starts
-      ExecStartPre = "${pkgs.coreutils}/bin/sleep 2"; 
-      ExecStart = "${pkgs.foot}/bin/foot --server";
-      OOMPolicy = "continue";
-      Restart = "on-failure";
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-  };
+#  systemd.user.services.foot-server = {
+#    Unit = {
+#      # Replace "hyprland-session.target" with "sway-session.target" if you use Sway
+#      After = [ "graphical-session.target" "hyprland-session.target" ];
+#      # Requisite = [ "graphical-session.target" ];
+#      ConditionEnvironment = "WAYLAND_DISPLAY";
+#      Description = "Foot server service";
+#      PartOf = "graphical-session.target";
+#    };
+#    Service = {
+#      # This gives the compositor a couple seconds to breathe before foot starts
+#      ExecStartPre = "${pkgs.coreutils}/bin/sleep 2"; 
+#      ExecStart = "${pkgs.foot}/bin/foot --server";
+#      OOMPolicy = "continue";
+#      Restart = "on-failure";
+#    };
+#    Install = {
+#      WantedBy = [ "default.target" ];
+#    };
+#  };
  
   programs.firefox = {
     enable = true;
