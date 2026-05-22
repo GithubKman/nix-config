@@ -16,6 +16,11 @@
       ./hardware-configuration.nix
     ];
 
+  swapDevices = [ {
+      device = "/swap/swapfile";
+      size = 32*1024;
+  } ];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
@@ -27,6 +32,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   
   hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
   services.xserver.videoDrivers = [ "nvidia"];
   hardware.nvidia.open = true;
 
@@ -124,6 +130,7 @@
     parted
     wget
     curl
+    wl-clipboard
   ];
   
 
