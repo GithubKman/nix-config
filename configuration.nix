@@ -48,6 +48,15 @@
 
 
 
+  # Cleanup
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than +8";
+  };
+
+
+
   systemd.user.services.xdg-desktop-portal-hyprland = {
     unitConfig = {
       Description = "Portal service (Hyprland implementation)";

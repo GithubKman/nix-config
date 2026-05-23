@@ -19,6 +19,13 @@
     fd
   ];
   
+  # Cleanup
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than +8";
+  };
+
   programs.fastfetch.enable = true;
   programs.fish = {
     enable = true;
