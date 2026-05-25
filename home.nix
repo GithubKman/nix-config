@@ -4,7 +4,9 @@
 
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-    prismlauncher
+    (prismlauncher.override {
+      additionalLibs = [ glfw3-minecraft ];
+    })
     _1password-gui
     _1password-cli
     vesktop

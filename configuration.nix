@@ -54,6 +54,9 @@
     dates = "weekly";
     options = "--delete-older-than +8";
   };
+  virtualisation.docker = {
+    enable = true;
+  };
 
 
 
@@ -109,7 +112,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kman = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker"];
     shell = pkgs.bash;
   };
 
