@@ -27,9 +27,6 @@
     stylix,
     ...
   }: {
-    environment.systemPackages = [
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    ];
     # NOTE: 'nixos' is the default hostname
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
