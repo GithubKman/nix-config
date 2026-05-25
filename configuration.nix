@@ -14,6 +14,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./zen-browser.nix
     ];
 
   swapDevices = [ {
@@ -143,7 +144,7 @@
     wget
     curl
     wl-clipboard
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    #inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   
 
@@ -184,6 +185,7 @@
 
 
   stylix.targets.gtk.enable = true;
+  stylix.targets.zen-browser.profilesNames = [ "default" ];
   
 
 
