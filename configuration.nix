@@ -14,7 +14,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #./zen-browser.nix
+      ./zen-browser.nix
     ];
 
   swapDevices = [ {
@@ -185,8 +185,7 @@
 
 
   stylix.targets.gtk.enable = true;
-  programs.zen-browser.enable = true;
-  stylix.targets.zen-browser.profilesNames = [ "default" ];
+  stylix.targets.zen-browser-unwrapped.profilesNames = [ "default" ];
   
 
 
