@@ -185,7 +185,7 @@
 
 
   stylix.targets.gtk.enable = true;
-  stylix.targets.zen-browser-unwrapped.profilesNames = [ "default" ];
+  stylix.targets.inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped.profilesNames = [ "default" ];
   
 
 
