@@ -79,7 +79,10 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   services.openvpn.servers = {
-    protonVPN = { config = '' config /root/nixos/openvpn/protonVPN.conf ''; };
+    protonVPN = { config = '' config /etc/nixos/openvpn/protonVPN.conf
+                              auth-user-pass /etc/nixos/openvpn/pass.txt '';
+		  autoStart = false;
+		};
   };
 
   # Select internationalisation properties.
