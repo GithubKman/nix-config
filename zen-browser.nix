@@ -39,10 +39,6 @@ in
             name: value: ''lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});''
           ) prefs
         );
-	profiles = {
-	  default = {
-	  };
-	};
 
         extraPolicies = {
           DisableTelemetry = true;

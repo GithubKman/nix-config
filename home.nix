@@ -138,7 +138,21 @@
       };
     };
   };
+  programs.zen-browser = {
+    enable = true;
+    profiles = {
+      default = {
+        id = 0;
+        name = "default";
+        isDefault = true;
+        extensions.force = true;
+        
+        settings = {};
+      };
+    };
+  };
   stylix.targets.firefox.profileNames = [ "default" ];
+  stylix.targets.zen-browser.profileNames = [ "default" ];
   stylix.targets.firefox.colorTheme.enable = true;
   stylix.targets.fuzzel.enable = true;
   

@@ -78,6 +78,9 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  services.openvpn.servers = {
+    protonVPN = { config = '' config /root/nixos/openvpn/protonVPN.conf ''; };
+  };
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
@@ -185,7 +188,6 @@
 
 
   stylix.targets.gtk.enable = true;
-  stylix.targets.inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped.profilesNames = [ "default" ];
   
 
 
