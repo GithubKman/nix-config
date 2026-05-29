@@ -21,6 +21,7 @@
     fd
     qbittorrent
     gh
+    git-filter-repo
   ];
   
   # Cleanup
