@@ -20,6 +20,7 @@
     ripgrep
     fd
     qbittorrent
+    gh
   ];
   
   # Cleanup
