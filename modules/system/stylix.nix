@@ -33,6 +33,7 @@
           gtk.enable = true;
           x11.enable = true;
         };
+        stylix.targets.wayprompt.enable = false;
 
         gtk = {
           enable = true;
